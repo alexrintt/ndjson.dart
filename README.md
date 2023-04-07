@@ -1,10 +1,8 @@
-# Lichess for Dart
+# ndjson parser for Dart
 
 [![Pub Version](https://img.shields.io/pub/v/ndjson)](https://pub.dev/packages/ndjson) [![Pub Version](https://img.shields.io/pub/points/ndjson)](https://pub.dev/packages/ndjson)
 
-This is a library for interacting with [Lichess API](https://lichess.org/api). It works on all platforms and exposes a collection of data classes and a extendable client interface.
-
-Notice: This is not an official Lichess project. It is maintained by volunteers.
+Tiny and simple ndjson parser library for Dart. No external dependencies.
 
 ## Installation
 
