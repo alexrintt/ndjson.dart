@@ -39,3 +39,21 @@ final parsedNdjson = ndjsonStream.parseNdjsonStringAsMap();
 // If you wanna parse already:
 final parsedNdjson = ndjsonStream.parseNdjsonString(converter: MyClass.fromJson);
 ```
+
+---
+
+Supported ndjson types are:
+
+- `Stream<List<int>>`.
+- `Stream<Uint8List>`.
+- `Stream<String>`.
+
+---
+
+Any list-like ndjson source can be converted to `Stream` using:
+
+```dart
+Stream.fromIterable(ndjsonList);
+```
+
+**You must be aware that using ndjson as list is the same as a regular json (you lose all ndjson performance benefits).**
