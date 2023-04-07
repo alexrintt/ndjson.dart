@@ -1,0 +1,19 @@
+name: ndjson
+description: >-
+  Tiny and simple ndjson parser library for Dart. 
+  No external dependencies.
+version: 0.0.1
+repository: https://github.com/alexrintt/ndjson.dart
+homepage: https://github.com/alexrintt/ndjson.dart
+documentation: https://github.com/alexrintt/ndjson.dart
+issue_tracker: https://github.com/alexrintt/ndjson.dart/issues
+funding:
+  - https://donate.alexrintt.io
+  - https://github.com/sponsors/alexrintt
+
+environment:
+  sdk: ">=2.19.4 <3.0.0"
+
+dev_dependencies:
+  lints: ^2.0.0
+  test: ^1.21.0
