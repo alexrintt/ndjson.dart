@@ -25,17 +25,16 @@ The usage is pretty straightforward:
 import 'package:ndjson/ndjson.dart';
 
 // Your ndjson stream.
-final ndjsonStream = ...
+final Stream<NdjsonLine|List<int>> ndjsonStream = ...
 
 // A new stream that will parse all chunks and emit events 
 // for each new json object (not ndjson chunks).
-final parsedNdjson = ndjsonStream.parseNdjsonBytesAsMap();
+final Stream<NdjsonLine> parsedNdjson = ndjsonStream.parseNdjson();
 
-// If your ndjson stream is a stream of string, use [parseNdjsonStringAsMap] instead.
-final parsedNdjson = ndjsonStream.parseNdjsonStringAsMap();
-
-// If you wanna parse already:
-final parsedNdjson = ndjsonStream.parseNdjsonString(converter: MyClass.fromJson);
+// Using converter functions:
+final Stream<Dummy> ndjson = ndjsonSource.parseNdjsonWithConverter<Dummy>(
+  whenMap: Dummy.fromJson,
+);
 ```
 
 ---
