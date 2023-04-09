@@ -25,7 +25,7 @@ The usage is pretty straightforward:
 import 'package:ndjson/ndjson.dart';
 
 // Your ndjson stream.
-final Stream<NdjsonLine|List<int>> ndjsonStream = ...
+final Stream<String|List<int>> ndjsonStream = ...
 
 // A new stream that will parse all chunks and emit events 
 // for each new json object (not ndjson chunks).
