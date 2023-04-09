@@ -1,29 +1,87 @@
+import 'package:ndjson/ndjson.dart';
+
 import 'ndjson_base.dart' as base;
 
 extension ParseNdJsonBytes on Stream<List<int>>? {
-  /// {@macro ndjsonparser}
-  ///
-  /// {@macro ndjsonconverter}
-  Stream<T> parseNdjsonBytes<T>({
-    required T Function(Map<String, dynamic>) converter,
+  /// {@macro parseNdjson}
+  Stream<NdjsonLine> parseNdjson({
+    bool ignoreEmptyLines = kDefaultIgnoreEmptyLines,
   }) =>
-      base.parseNdjsonBytesAsMap(this).map<T>(converter);
+      base.parseNdjson(
+        byteStream: this,
+        ignoreEmptyLines: ignoreEmptyLines,
+      );
 
-  /// {@macro ndjsonparser}
-  Stream<Map<String, dynamic>> parseNdjsonBytesAsMap() =>
-      base.parseNdjsonBytesAsMap(this);
+  /// {@macro parseNdjsonWithConverter}
+  Stream<T> parseNdjsonWithConverter<T>({
+    T Function(NdjsonLine)? converter,
+    T Function(Map<String, dynamic>)? whenMap,
+    T Function(dynamic)? whenAny,
+    T Function(List<dynamic>)? whenList,
+    T Function(int)? whenInt,
+    T Function(double)? whenDouble,
+    T Function(num)? whenNum,
+    T Function(String)? whenString,
+    T Function(bool)? whenBool,
+    T Function()? whenNull,
+    T Function()? whenEmptyLine,
+    bool? ignoreEmptyLines,
+  }) =>
+      base.parseNdjsonWithConverter(
+        byteStream: this,
+        converter: converter,
+        whenMap: whenMap,
+        whenAny: whenAny,
+        whenList: whenList,
+        whenInt: whenInt,
+        whenDouble: whenDouble,
+        whenNum: whenNum,
+        whenString: whenString,
+        whenBool: whenBool,
+        whenNull: whenNull,
+        whenEmptyLine: whenEmptyLine,
+        ignoreEmptyLines: ignoreEmptyLines,
+      );
 }
 
 extension ParseNdJsonString on Stream<String>? {
-  /// {@macro ndjsonparser}
-  ///
-  /// {@macro ndjsonconverter}
-  Stream<T> parseNdjsonString<T>({
-    required T Function(Map<String, dynamic>) converter,
+  /// {@macro parseNdjson}
+  Stream<NdjsonLine> parseNdjson({
+    bool ignoreEmptyLines = kDefaultIgnoreEmptyLines,
   }) =>
-      base.parseNdjsonString(this, converter: converter);
+      base.parseNdjson(
+        stream: this,
+        ignoreEmptyLines: ignoreEmptyLines,
+      );
 
-  /// {@macro ndjsonparser}
-  Stream<Map<String, dynamic>> parseNdjsonStringAsMap() =>
-      base.parseNdjsonStringAsMap(this);
+  /// {@macro parseNdjsonWithConverter}
+  Stream<T> parseNdjsonWithConverter<T>({
+    T Function(NdjsonLine)? converter,
+    T Function(Map<String, dynamic>)? whenMap,
+    T Function(dynamic)? whenAny,
+    T Function(List<dynamic>)? whenList,
+    T Function(int)? whenInt,
+    T Function(double)? whenDouble,
+    T Function(num)? whenNum,
+    T Function(String)? whenString,
+    T Function(bool)? whenBool,
+    T Function()? whenNull,
+    T Function()? whenEmptyLine,
+    bool? ignoreEmptyLines,
+  }) =>
+      base.parseNdjsonWithConverter(
+        stream: this,
+        converter: converter,
+        whenMap: whenMap,
+        whenAny: whenAny,
+        whenList: whenList,
+        whenInt: whenInt,
+        whenDouble: whenDouble,
+        whenNum: whenNum,
+        whenString: whenString,
+        whenBool: whenBool,
+        whenNull: whenNull,
+        whenEmptyLine: whenEmptyLine,
+        ignoreEmptyLines: ignoreEmptyLines,
+      );
 }
