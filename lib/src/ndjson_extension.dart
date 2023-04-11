@@ -27,7 +27,7 @@ extension ParseNdJsonBytes on Stream<List<int>>? {
     T Function()? whenEmptyLine,
     bool? ignoreEmptyLines,
   }) =>
-      base.parseNdjsonWithConverter(
+      base.parseNdjsonWithConverter<T>(
         byteStream: this,
         converter: converter,
         whenMap: whenMap,
@@ -69,7 +69,7 @@ extension ParseNdJsonString on Stream<String>? {
     T Function()? whenEmptyLine,
     bool? ignoreEmptyLines,
   }) =>
-      base.parseNdjsonWithConverter(
+      base.parseNdjsonWithConverter<T>(
         stream: this,
         converter: converter,
         whenMap: whenMap,

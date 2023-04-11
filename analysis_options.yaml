@@ -18,6 +18,8 @@ include: package:lints/recommended.yaml
 linter:
   rules:
     - always_specify_types
+    - always_declare_return_types
+    - avoid_shadowing_type_parameters
 # analyzer:
 #   exclude:
 #     - path/to/excluded/files/**
